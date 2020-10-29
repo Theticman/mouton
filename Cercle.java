@@ -12,7 +12,7 @@ public class Cercle extends Ellipse implements Calculs{
 	
 	@Override
 	public String toString() {
-		return "Cercle [Centre: " + this.getCentre() + "; Rayon: " + this.demi_grand_axe + "]";
+		return "Cercle [Rayon: " + this.demi_grand_axe + "]";
 	}
 
 	@Override
