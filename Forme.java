@@ -19,4 +19,8 @@ abstract class Forme extends Point {
 	public String infos_generales() {
 		return "(Origine: (" + this.origine.posX + "," + this.origine.posY + "); Rotation: " + rot + "; Echelle: " + echelle + ")";
 	}
+
+	protected abstract double mesurer_perimetre();
+
+	protected abstract double mesurer_air();
 }

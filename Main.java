@@ -18,8 +18,8 @@ public class Main {
 		Ligne l1 = new Ligne(p1,p2,5);
 		Ligne l2 = new Ligne(2,4,6,5,1.2);
 		Ellipse e1 = new Ellipse(p2,3.4,4.2);
-		Ellipse e2 = new Ellipse(3,2,4,19);
-		Cercle c1 = new Cercle(p3,6);
+		Ellipse e2 = new Ellipse(3,2,4,3);
+		Cercle c1 = new Cercle(p3,3);
 		Polygone po1 = new Polygone();
 		
 		po1.ajouter_point(p1);
@@ -44,13 +44,11 @@ public class Main {
 		
 		System.out.println(f.toString());
 		
-		System.out.println(c1.mesurer_air());
-		System.out.println(c1.mesurer_perimetre());
-		
 		System.out.println(l1.mesurer_air());
-		System.out.println(l1.mesurer_perimetre());
-		
-		System.out.println(po1.mesurer_perimetre());
-		System.out.println(po1.mesurer_air());
+		System.out.println(l2.mesurer_air());
+		System.out.println(e1.mesurer_air());
+		System.out.println(i2.mesurer_air());
+		System.out.println(d.mesurer_air());
+		System.out.println(f.mesurer_air());
 	}
 }

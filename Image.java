@@ -2,7 +2,7 @@ package mouton;
 
 import java.util.HashSet;
 
-public class Image {
+public class Image implements Calculs{
 	
 	private HashSet<Forme> image = new HashSet<Forme>();
 	private String nom;
@@ -26,5 +26,23 @@ public class Image {
 			out += "        -> " + forme.toString() + " " + forme.infos_generales() + "\n";
 		}
 		return out;
+	}
+
+	@Override
+	public double mesurer_perimetre() {
+		double somme = 0;
+		for (Forme forme: image) {
+			somme += forme.mesurer_perimetre();
+		}
+		return somme;
+	}
+
+	@Override
+	public double mesurer_air() {
+		double somme = 0;
+		for (Forme forme: image) {
+			somme += forme.mesurer_air();
+		}
+		return somme;
 	}
 }
