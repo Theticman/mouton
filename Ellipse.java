@@ -3,7 +3,7 @@ package mouton;
 public class Ellipse extends Forme implements Calculs{
 	
 	protected double demi_grand_axe;
-	private double demi_petit_axe;
+	protected double demi_petit_axe;
 	
 	public Ellipse(final Point centre, final double demi_grand_axe, final double demi_petit_axe) {
 		super();
