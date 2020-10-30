@@ -32,4 +32,32 @@ abstract class Forme extends Point {
 	protected abstract void symetrie_centrale(Point point);
 
 	protected abstract void symetrie_axiale(Point point1, Point point2);
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + ((origine == null) ? 0 : origine.hashCode());
+		result = prime * result + rot;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Forme other = (Forme) obj;
+		if (origine == null) {
+			if (other.origine != null)
+				return false;
+		} else if (!origine.equals(other.origine))
+			return false;
+		if (rot != other.rot)
+			return false;
+		return true;
+	}
 }

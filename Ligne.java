@@ -82,4 +82,40 @@ public class Ligne extends Forme implements Calculs, Transformations{
 		this.point2.posX += 2*(x - this.point2.posX);
 		this.point2.posY += 2*(y - this.point2.posY);
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		long temp;
+		temp = Double.doubleToLongBits(epaisseur);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + ((point1 == null) ? 0 : point1.hashCode());
+		result = prime * result + ((point2 == null) ? 0 : point2.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Ligne other = (Ligne) obj;
+		if (Double.doubleToLongBits(epaisseur) != Double.doubleToLongBits(other.epaisseur))
+			return false;
+		if (point1 == null) {
+			if (other.point1 != null)
+				return false;
+		} else if (!point1.equals(other.point1))
+			return false;
+		if (point2 == null) {
+			if (other.point2 != null)
+				return false;
+		} else if (!point2.equals(other.point2))
+			return false;
+		return true;
+	}
 }

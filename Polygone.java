@@ -96,4 +96,29 @@ public class Polygone extends Forme implements Calculs, Transformations{
 			point.posY += 2*(x - point.posY);
 		}
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + ((polygone == null) ? 0 : polygone.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Polygone other = (Polygone) obj;
+		if (polygone == null) {
+			if (other.polygone != null)
+				return false;
+		} else if (!polygone.equals(other.polygone))
+			return false;
+		return true;
+	}
 }

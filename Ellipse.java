@@ -76,4 +76,39 @@ public class Ellipse extends Forme implements Calculs, Transformations{
 		this.centre.posX += 2*(x - this.centre.posX);
 		this.centre.posY += 2*(y - this.centre.posY);
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + ((centre == null) ? 0 : centre.hashCode());
+		long temp;
+		temp = Double.doubleToLongBits(demi_grand_axe);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		temp = Double.doubleToLongBits(demi_petit_axe);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Ellipse other = (Ellipse) obj;
+		if (centre == null) {
+			if (other.centre != null)
+				return false;
+		} else if (!centre.equals(other.centre))
+			return false;
+		if (Double.doubleToLongBits(demi_grand_axe) != Double.doubleToLongBits(other.demi_grand_axe))
+			return false;
+		if (Double.doubleToLongBits(demi_petit_axe) != Double.doubleToLongBits(other.demi_petit_axe))
+			return false;
+		return true;
+	}
+	
 }
