@@ -19,6 +19,10 @@ public class Image implements Calculs, Transformations{
 		image.add(forme);
 	}
 	
+	public HashSet<Forme> getImage() {
+		return image;
+	}
+
 	@Override
 	public String toString() {
 		String out = "    -> " + nom + ":\n";

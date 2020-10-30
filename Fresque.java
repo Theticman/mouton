@@ -23,6 +23,10 @@ public class Fresque implements Calculs, Transformations{
 		return out;
 	}
 
+	public HashSet<Dessin> getFresque() {
+		return fresque;
+	}
+
 	@Override
 	public double mesurer_perimetre() {
 		double somme = 0;
@@ -83,6 +87,31 @@ public class Fresque implements Calculs, Transformations{
 		}
 		return Nouveau_dessin;
 	}
-	
+
+	public int nombre_perimetre_inferieur_a(final Fresque fresque, final double seuil) {
+		int nombre = 0;
+		for (Dessin dessin: fresque.getFresque()) {
+			for (Image image: dessin.getDessin()) {
+				for (Forme forme: image.getImage()) {
+					if (forme.mesurer_perimetre() < seuil) {
+						nombre += 1;
+					}
+				}
+			}
+		}
+		return nombre;
+	}
+
+	public int nombre_air_inferieur_a(final Fresque fresque, final double seuil) {
+		int nombre = 0;
+		for (Dessin dessin: fresque.getFresque()) {
+			for (Image image: dessin.getDessin()) {
+				if (image.mesurer_air() < seuil) {
+					nombre += 1;
+				}
+			}
+		}
+		return nombre;
+	}
 	
 }
