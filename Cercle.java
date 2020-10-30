@@ -46,8 +46,8 @@ public class Cercle extends Ellipse implements Calculs, Transformations{
 
 	@Override
 	public void symetrie_centrale(final Point point) {
-		this.origine.posX += this.origine.posX - point.posX;
-		this.origine.posY += this.origine.posY - point.posY;
+		this.origine.posX += 2*(point.posX - this.origine.posX);
+		this.origine.posY += 2*(point.posY - this.origine.posY);
 		this.rot = this.rot + 180;
 	}
 
@@ -55,7 +55,9 @@ public class Cercle extends Ellipse implements Calculs, Transformations{
 	public void symetrie_axiale(final Point point1, final Point point2) {
 		double x = ((point1.posX*point2.posY - point2.posX*point1.posY)*(point2.posY - point1.posY) - (this.origine.posY*(point2.posY - point1.posY) - this.origine.posX*(point1.posX - point2.posX)*(point1.posX - point2.posX))) / (Math.pow(point1.posX - point2.posX, 2) + (Math.pow(point2.posY - point1.posY, 2)));
 		double y = ((point1.posX*point2.posY - point2.posX*point1.posY)*(point1.posX - point2.posX) - (this.origine.posY*(point2.posY - point1.posY) - this.origine.posX*(point1.posX - point2.posX)*(point2.posY - point1.posY))) / (Math.pow(point1.posX - point2.posX, 2) + (Math.pow(point2.posY - point1.posY, 2)));
-		this.origine.posX += this.origine.posX - x;
-		this.origine.posY += this.origine.posY - y;
+		System.out.println(x);
+		System.out.println(y);
+		this.origine.posX += 2*(x - this.origine.posX);
+		this.origine.posY += 2*(y - this.origine.posY);
 	}
 }

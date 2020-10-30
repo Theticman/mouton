@@ -12,14 +12,14 @@ public class Main {
 		Point p2 = new Point(3,4);
 		Point p3 = new Point(9,20);
 		Point p4 = new Point(0,5);
-		Point p5 = new Point(5,5);
+		Point p5 = new Point(1,1);
 		Point p6 = new Point(5,0);
 		Point p7 = new Point(2.5,2.5);
 		Ligne l1 = new Ligne(p1,p2,5);
 		Ligne l2 = new Ligne(2,4,6,5,1.2);
 		Ellipse e1 = new Ellipse(p2,3.4,4.2);
 		Ellipse e2 = new Ellipse(3,2,4,3);
-		Cercle c1 = new Cercle(p3,3);
+		Cercle c1 = new Cercle(p4,3);
 		Polygone po1 = new Polygone();
 		
 		po1.ajouter_point(p1);
@@ -50,5 +50,8 @@ public class Main {
 		System.out.println(i2.mesurer_air());
 		System.out.println(d.mesurer_air());
 		System.out.println(f.mesurer_air());
+		
+		c1.symetrie_axiale(p5,p1);
+		System.out.println(f.toString());
 	}
 }

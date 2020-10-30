@@ -2,6 +2,6 @@ package mouton;
 
 public interface Calculs {
 
-	public double mesurer_perimetre();
-	public double mesurer_air();
+	abstract public double mesurer_perimetre();
+	abstract public double mesurer_air();
 }

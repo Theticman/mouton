@@ -2,9 +2,9 @@ package mouton;
 
 public interface Transformations {
 	
-	public void appliquer_homotetie();
-	public void translater();
-	public void rotater();
-	public void symetrie_centrale();
-	public void symetrie_axiale();
+	abstract public void appliquer_homotetie(final double scale);
+	abstract public void translater(final double dx, final double dy);
+	abstract public void rotater(final int angle);
+	abstract public void symetrie_centrale(final Point point);
+	abstract public void symetrie_axiale(final Point point1, final Point point2);
 }
