@@ -79,14 +79,6 @@ public class Fresque implements Calculs, Transformations{
 			dessin.symetrie_axiale(point1, point2);
 		}
 	}
-	
-	public Dessin copie_dessin(final Dessin dessin) {
-		Dessin Nouveau_dessin = new Dessin("Nouveau dessin");
-		for (Image image: dessin.getDessin()) {
-			Nouveau_dessin.ajouter_image(image);
-		}
-		return Nouveau_dessin;
-	}
 
 	public int nombre_perimetre_inferieur_a(final Fresque fresque, final double seuil) {
 		int nombre = 0;
