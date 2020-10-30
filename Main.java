@@ -43,15 +43,15 @@ public class Main {
 		f.ajouter_dessin(d);
 		
 		System.out.println(f.toString());
-		
+		/*
 		System.out.println(l1.mesurer_air());
 		System.out.println(l2.mesurer_air());
 		System.out.println(e1.mesurer_air());
 		System.out.println(i2.mesurer_air());
 		System.out.println(d.mesurer_air());
-		System.out.println(f.mesurer_air());
+		System.out.println(f.mesurer_air());*/
 		
-		c1.symetrie_axiale(p5,p1);
+		f.appliquer_homotetie(2);
 		System.out.println(f.toString());
 	}
 }

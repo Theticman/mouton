@@ -53,12 +53,21 @@ public class Polygone extends Forme implements Calculs, Transformations{
 	public void appliquer_homotetie(final double scale) {
 		this.origine.posX *= scale;
 		this.origine.posY *= scale;
+		for (Point point: polygone) {
+			point.posX *= scale;
+			point.posY *= scale;
+		}
 	}
 
 	@Override
 	public void translater(final double dx, final double dy) {
 		this.origine.posX += dx;
 		this.origine.posY += dy;
+		for (Point point: polygone) {
+			point.posX += dx;
+			point.posY += dy;
+		}
+		
 	}
 
 	@Override

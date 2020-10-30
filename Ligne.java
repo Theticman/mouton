@@ -39,6 +39,10 @@ public class Ligne extends Forme implements Calculs, Transformations{
 	public void appliquer_homotetie(final double scale) {
 		this.origine.posX *= scale;
 		this.origine.posY *= scale;
+		this.point1.posX *= scale;
+		this.point1.posY *= scale;
+		this.point2.posX *= scale;
+		this.point2.posY *= scale;
 		this.epaisseur *= scale;
 	}
 
