@@ -2,8 +2,8 @@ package mouton;
 
 public class Point {
 	
-	protected double posX = 0;
-	protected double posY = 0;
+	protected double posX = (int) (Math.random() * 20);
+	protected double posY = (int) (Math.random() * 20);
 
 	public Point() {
 	}

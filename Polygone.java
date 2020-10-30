@@ -2,7 +2,7 @@ package mouton;
 
 import java.util.ArrayList;
 
-public class Polygone extends Forme implements Calculs{
+public class Polygone extends Forme implements Calculs, Transformations{
 	
 	private ArrayList<Point> polygone = new ArrayList<Point>();
 	
@@ -47,5 +47,45 @@ public class Polygone extends Forme implements Calculs{
 			j = i;
 		}
 		return Math.abs(air) * .5;
+	}
+	
+	@Override
+	public void appliquer_homotetie(final double scale) {
+		this.origine.posX *= scale;
+		this.origine.posY *= scale;
+	}
+
+	@Override
+	public void translater(final double dx, final double dy) {
+		this.origine.posX = this.origine.posX + dx;
+		this.origine.posY = this.origine.posY + dy;
+	}
+
+	@Override
+	public void rotater(final int angle) {
+		this.rot += angle;
+	}
+
+	@Override
+	public void symetrie_centrale(final Point centre) {
+		this.origine.posX += 2*(centre.posX - this.origine.posX);
+		this.origine.posY += 2*(centre.posY - this.origine.posY);
+		this.rot = this.rot + 180;
+		for (Point point: polygone) {
+			point.posX += 2*(centre.posX - point.posX);
+			point.posY += 2*(centre.posY - point.posY);
+		}
+	}
+
+	@Override
+	public void symetrie_axiale(final Point point1, final Point point2) {
+		double x = ((point1.posX*point2.posY - point2.posX*point1.posY)*(point2.posY - point1.posY) - (this.origine.posY*(point2.posY - point1.posY) - this.origine.posX*(point1.posX - point2.posX)*(point1.posX - point2.posX))) / (Math.pow(point1.posX - point2.posX, 2) + (Math.pow(point2.posY - point1.posY, 2)));
+		double y = ((point1.posX*point2.posY - point2.posX*point1.posY)*(point1.posX - point2.posX) - (this.origine.posY*(point2.posY - point1.posY) - this.origine.posX*(point1.posX - point2.posX)*(point2.posY - point1.posY))) / (Math.pow(point1.posX - point2.posX, 2) + (Math.pow(point2.posY - point1.posY, 2)));
+		this.origine.posX += 2*(x - this.origine.posX);
+		this.origine.posY += 2*(y - this.origine.posY);
+		for (Point point: polygone) {
+			point.posX += 2*(x - point.posX);
+			point.posY += 2*(x - point.posY);
+		}
 	}
 }

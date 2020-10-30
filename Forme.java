@@ -2,9 +2,8 @@ package mouton;
 
 abstract class Forme extends Point {
 
-	protected Point origine = new Point((int) (Math.random() * 20),(int) (Math.random() * 20));
+	protected Point origine = new Point();
 	protected int rot = (int) (Math.random() * 360);
-	protected double echelle = 1.0;
 	
 	public Forme() {
 	}
@@ -13,11 +12,10 @@ abstract class Forme extends Point {
 		this.origine.posX = posX;
 		this.origine.posY = posY;
 		this.rot = rot;
-		this.echelle = echelle;
 	}
 
 	public String infos_generales() {
-		return "(Origine: (" + this.origine.posX + "," + this.origine.posY + "); Rotation: " + rot + "; Echelle: " + echelle + ")";
+		return "(Origine: (" + this.origine.posX + "," + this.origine.posY + "); Rotation: " + rot + ")";
 	}
 
 	protected abstract double mesurer_perimetre();
