@@ -44,8 +44,12 @@ public class Ligne extends Forme implements Calculs, Transformations{
 
 	@Override
 	public void translater(final double dx, final double dy) {
-		this.origine.posX = this.origine.posX + dx;
-		this.origine.posY = this.origine.posY + dy;
+		this.origine.posX += dx;
+		this.origine.posY += dy;
+		this.point1.posX += dx;
+		this.point1.posY += dy;
+		this.point2.posX += dx;
+		this.point2.posY += dy;
 	}
 
 	@Override
@@ -57,7 +61,10 @@ public class Ligne extends Forme implements Calculs, Transformations{
 	public void symetrie_centrale(final Point centre) {
 		this.origine.posX += 2*(centre.posX - this.origine.posX);
 		this.origine.posY += 2*(centre.posY - this.origine.posY);
-		this.rot = this.rot + 180;
+		this.point1.posX += 2*(centre.posX - this.point1.posX);
+		this.point1.posY += 2*(centre.posY - this.point1.posY);
+		this.point2.posX += 2*(centre.posX - this.point2.posX);
+		this.point2.posY += 2*(centre.posY - this.point2.posY);
 	}
 
 	@Override

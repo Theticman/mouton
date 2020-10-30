@@ -55,7 +55,6 @@ public class Cercle extends Ellipse implements Calculs, Transformations{
 		this.origine.posY += 2*(centre.posY - this.origine.posY);
 		this.centre.posX += 2*(centre.posX - this.centre.posX);
 		this.centre.posY += 2*(centre.posY - this.centre.posY);
-		this.rot += 180;
 	}
 
 	@Override

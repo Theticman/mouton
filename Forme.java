@@ -21,4 +21,14 @@ abstract class Forme extends Point {
 	protected abstract double mesurer_perimetre();
 
 	protected abstract double mesurer_air();
+
+	protected abstract void appliquer_homotetie(double scale);
+
+	protected abstract void translater(double dx, double dy);
+
+	protected abstract void rotater(int angle);
+
+	protected abstract void symetrie_centrale(Point point);
+
+	protected abstract void symetrie_axiale(Point point1, Point point2);
 }

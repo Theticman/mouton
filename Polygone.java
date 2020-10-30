@@ -57,8 +57,8 @@ public class Polygone extends Forme implements Calculs, Transformations{
 
 	@Override
 	public void translater(final double dx, final double dy) {
-		this.origine.posX = this.origine.posX + dx;
-		this.origine.posY = this.origine.posY + dy;
+		this.origine.posX += dx;
+		this.origine.posY += dy;
 	}
 
 	@Override
@@ -70,7 +70,6 @@ public class Polygone extends Forme implements Calculs, Transformations{
 	public void symetrie_centrale(final Point centre) {
 		this.origine.posX += 2*(centre.posX - this.origine.posX);
 		this.origine.posY += 2*(centre.posY - this.origine.posY);
-		this.rot = this.rot + 180;
 		for (Point point: polygone) {
 			point.posX += 2*(centre.posX - point.posX);
 			point.posY += 2*(centre.posY - point.posY);

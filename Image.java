@@ -2,7 +2,7 @@ package mouton;
 
 import java.util.HashSet;
 
-public class Image implements Calculs{
+public class Image implements Calculs, Transformations{
 	
 	private HashSet<Forme> image = new HashSet<Forme>();
 	private String nom;
@@ -44,5 +44,40 @@ public class Image implements Calculs{
 			somme += forme.mesurer_air();
 		}
 		return somme;
+	}
+
+	@Override
+	public void appliquer_homotetie(double scale) {
+		for (Forme forme: image) {
+			forme.appliquer_homotetie(scale);
+		}		
+	}
+
+	@Override
+	public void translater(double dx, double dy) {
+		for (Forme forme: image) {
+			forme.translater(dx, dy);
+		}	
+	}
+
+	@Override
+	public void rotater(int angle) {
+		for (Forme forme: image) {
+			forme.rotater(angle);
+		}	
+	}
+
+	@Override
+	public void symetrie_centrale(Point point) {
+		for (Forme forme: image) {
+			forme.symetrie_centrale(point);
+		}
+	}
+
+	@Override
+	public void symetrie_axiale(Point point1, Point point2) {
+		for (Forme forme: image) {
+			forme.symetrie_axiale(point1, point2);
+		}
 	}
 }
