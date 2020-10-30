@@ -75,4 +75,14 @@ public class Fresque implements Calculs, Transformations{
 			dessin.symetrie_axiale(point1, point2);
 		}
 	}
+	
+	public Dessin copie_dessin(final Dessin dessin) {
+		Dessin Nouveau_dessin = new Dessin("Nouveau dessin");
+		for (Image image: dessin.getDessin()) {
+			Nouveau_dessin.ajouter_image(image);
+		}
+		return Nouveau_dessin;
+	}
+	
+	
 }

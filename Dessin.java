@@ -19,6 +19,10 @@ public class Dessin implements Calculs, Transformations{
 		dessin.add(image);
 	}
 
+	public HashSet<Image> getDessin() {
+		return dessin;
+	}
+
 	@Override
 	public String toString() {
 		String out = "-> "+ nom + ":\n";

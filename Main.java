@@ -3,7 +3,6 @@ package mouton;
 public class Main {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		Fresque f = new Fresque();
 		Dessin d = new Dessin("Chien");
 		Image i = new Image("Tête");
@@ -51,7 +50,7 @@ public class Main {
 		System.out.println(d.mesurer_air());
 		System.out.println(f.mesurer_air());*/
 		
-		f.appliquer_homotetie(2);
+		i.appliquer_homotetie(2);
 		System.out.println(f.toString());
 	}
 }
