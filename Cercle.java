@@ -66,4 +66,21 @@ public class Cercle extends Ellipse implements Calculs, Transformations{
 		this.centre.posX += 2*(x - this.centre.posX);
 		this.centre.posY += 2*(y - this.centre.posY);
 	}
+
+	@Override
+	public int hashCode() {
+		return super.hashCode();
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		return true;
+	}
+	
 }

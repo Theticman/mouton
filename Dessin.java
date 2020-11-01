@@ -92,4 +92,36 @@ public class Dessin implements Calculs, Transformations{
 		}
 		return Nouveau_dessin;
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((dessin == null) ? 0 : dessin.hashCode());
+		result = prime * result + ((nom == null) ? 0 : nom.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Dessin other = (Dessin) obj;
+		if (dessin == null) {
+			if (other.dessin != null)
+				return false;
+		} else if (!dessin.equals(other.dessin))
+			return false;
+		if (nom == null) {
+			if (other.nom != null)
+				return false;
+		} else if (!nom.equals(other.nom))
+			return false;
+		return true;
+	}
+	
 }

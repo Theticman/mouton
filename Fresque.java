@@ -105,5 +105,30 @@ public class Fresque implements Calculs, Transformations{
 		}
 		return nombre;
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((fresque == null) ? 0 : fresque.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Fresque other = (Fresque) obj;
+		if (fresque == null) {
+			if (other.fresque != null)
+				return false;
+		} else if (!fresque.equals(other.fresque))
+			return false;
+		return true;
+	}
 	
 }

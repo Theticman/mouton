@@ -4,7 +4,7 @@ public class Ligne extends Forme implements Calculs, Transformations{
 	
 	private Point point1;
 	private Point point2;
-	double epaisseur;
+	private double epaisseur;
 	
 	public Ligne(Point point1, Point point2, double epaisseur) {
 		super();
