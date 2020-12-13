@@ -1,20 +1,41 @@
 package mouton;
 
 import java.util.HashSet;
+import java.util.ArrayList;
 
+/**
+ * Classe Dessin recensant des images uniques
+ * stockées dans une liste issue de la collection HashSet.
+ */
 public class Dessin implements Calculs, Transformations{
 	
 	private HashSet<Image> dessin = new HashSet<Image>();
 	private String nom;
 	
+	/**
+	 * Chaque nouveau dessin est une liste vide
+	 * prête à recevoir des images.
+	 * Ce constructeur donne un nom par défaut au dessin.
+	 */
 	public Dessin() {
 		this.nom = "Dessin (nom par défaut)";
 	}
 	
+	/**
+	 * Chaque nouveau dessin est une liste vide
+	 * prête à recevoir des images.
+	 * Ce constructeur donne un nom donné en paramètre au dessin.
+	 * @param nom Nom du dessin créé.
+	 */
 	public Dessin(final String nom) {
 		this.nom = nom;
 	}
 	
+	/**
+	 * Cette méthode permet d'ajouter une image au dessin
+	 * si elle n'y est pas encore présente.
+	 * @param image Objet à ajouter à la liste.
+	 */
 	public void ajouter_image(final Image image) {
 		dessin.add(image);
 	}
@@ -42,10 +63,10 @@ public class Dessin implements Calculs, Transformations{
 	}
 
 	@Override
-	public double mesurer_air() {
+	public double mesurer_aire() {
 		double somme = 0;
 		for (Image image: dessin) {
-			somme += image.mesurer_air();
+			somme += image.mesurer_aire();
 		}
 		return somme;
 	}
@@ -85,14 +106,41 @@ public class Dessin implements Calculs, Transformations{
 		}
 	}
 	
-	public Dessin copie_dessin(final Dessin dessin) {
+	public Dessin copie_dessin() {
 		Dessin Nouveau_dessin = new Dessin("Nouveau dessin");
-		for (Image image: dessin.getDessin()) {
+		for (Image image: this.dessin) {
+			Nouveau_dessin.ajouter_image(image);
+		}
+		return Nouveau_dessin;
+	}
+	
+	public Dessin copie_dessin(final String nom) {
+		Dessin Nouveau_dessin = new Dessin(nom);
+		for (Image image: this.dessin) {
 			Nouveau_dessin.ajouter_image(image);
 		}
 		return Nouveau_dessin;
 	}
 
+	public ArrayList<Image> trier_dessin_selon_aire() {
+		ArrayList<Image> trier = new ArrayList<Image>(this.dessin);
+		for (int i = 0; i < trier.size(); i++) {
+			double min = Double.POSITIVE_INFINITY;
+			int min_index = i;
+			for (int j = i; j < trier.size(); j++) {
+				double aire = trier.get(j).mesurer_aire();
+				if (aire < min) {
+					min = aire;
+					min_index = j;
+				}
+			}
+			Image temp = trier.get(min_index);
+			trier.set(min_index, trier.get(i));
+			trier.set(i, temp);
+		}
+		return trier;
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

@@ -1,13 +1,27 @@
 package mouton;
 
+/**
+ * Classe Point permettant de centraliser
+ * la création d'un point.
+ */
 public class Point {
 	
 	protected double posX = (int) (Math.random() * 20);
 	protected double posY = (int) (Math.random() * 20);
 
+	/**
+	 * Un premier constructeur sans paramètre,
+	 * attribuant des coordonnées aléatoires.
+	 */
 	public Point() {
 	}
 	
+	/**
+	 * Un constructeur attribuant au point créé, un abscisse
+	 * et une ordonnée.
+	 * @param posX - Abscisse du nouveau point.
+	 * @param posY - Ordonnée du nouveau point.
+	 */
 	public Point(final double posX, final double posY) {
 		this.posX = posX;
 		this.posY = posY;

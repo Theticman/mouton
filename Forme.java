@@ -1,5 +1,9 @@
 package mouton;
 
+/**
+ * Classe abstraite Forme donnant à toutes les
+ * formes, un point d'origine et une rotation.
+ */
 abstract class Forme extends Point {
 
 	protected Point origine = new Point();
@@ -21,7 +25,7 @@ abstract class Forme extends Point {
 
 	protected abstract double mesurer_perimetre();
 
-	protected abstract double mesurer_air();
+	protected abstract double mesurer_aire();
 
 	protected abstract void appliquer_homotetie(double scale);
 

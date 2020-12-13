@@ -1,11 +1,20 @@
 package mouton;
 
+/**
+ * Classe Ellipse descendante de la classe Forme.
+ */
 public class Ellipse extends Forme implements Calculs, Transformations{
 	
 	protected Point centre;
 	protected double demi_grand_axe;
 	protected double demi_petit_axe;
 	
+	/**
+	 * Constructeur prenant un point déjà existant pour centre.
+	 * @param centre Point central de l'ellipse.
+	 * @param demi_grand_axe Demi grand axe de l'ellipse.
+	 * @param demi_petit_axe Demi petit axe de l'ellipse.
+	 */
 	public Ellipse(final Point centre, final double demi_grand_axe, final double demi_petit_axe) {
 		super();
 		this.centre = centre;
@@ -13,6 +22,13 @@ public class Ellipse extends Forme implements Calculs, Transformations{
 		this.demi_petit_axe = demi_petit_axe;
 	}
 	
+	/**
+	 * Constructeur prenant les coordonnées d'un point non existant.
+	 * @param centre_x Centre abscisse.
+	 * @param centre_y Centre ordonnée.
+	 * @param demi_grand_axe Demi grand axe de l'ellipse.
+	 * @param demi_petit_axe Demi petit axe de l'ellipse.
+	 */
 	public Ellipse(final int centre_x, final int centre_y, final double demi_grand_axe, final double demi_petit_axe) {
 		super();
 		this.centre = new Point(centre_x,centre_y);
@@ -26,13 +42,21 @@ public class Ellipse extends Forme implements Calculs, Transformations{
 		return "Ellipse [Centre: " + centre.toString() + "; Demi grand axe: " + demi_grand_axe + "; Demi petit axe: " + demi_petit_axe + "]";
 	}
 
+	/**
+	 * Mesure du périmètre en utilisant: https://calculis.net/aire/ellipse.
+	 * @return Renvoi un double périmètre de l'objet.
+	 */
 	@Override
 	public double mesurer_perimetre() {
 		return Math.PI * (3*(this.demi_grand_axe + this.demi_petit_axe) - Math.sqrt((3*this.demi_grand_axe + this.demi_petit_axe)*(this.demi_grand_axe + 3*this.demi_petit_axe)));
 	}
 
+	/**
+	 * Mesure de l'aire en utilisant: 2*demi_grand_axe*demi_petit_axe.
+	 * @return Renvoi un double air de l'objet.
+	 */
 	@Override
-	public double mesurer_air() {
+	public double mesurer_aire() {
 		return Math.PI * this.demi_grand_axe * this.demi_petit_axe;
 	}
 

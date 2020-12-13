@@ -1,11 +1,20 @@
 package mouton;
 
+/**
+ * Classe Ligne descendante de la classe Forme.
+ */
 public class Ligne extends Forme implements Calculs, Transformations{
 	
 	private Point point1;
 	private Point point2;
 	private double epaisseur;
 	
+	/**
+	 * Constructeur prenant deux points déjà existant.
+	 * @param point1 Premier point de la ligne.
+	 * @param point2 Deuxième point de la ligne.
+	 * @param epaisseur Epaisseur de la ligne pour pouvoir calculer l'air.
+	 */
 	public Ligne(Point point1, Point point2, double epaisseur) {
 		super();
 		this.point1 = point1;
@@ -13,6 +22,14 @@ public class Ligne extends Forme implements Calculs, Transformations{
 		this.epaisseur = epaisseur;
 	}
 	
+	/**
+	 * Constructeur prenant les coordonnées de deux points non existants.
+	 * @param point1_x Point 1 abscisse.
+	 * @param point1_y Point 1 ordonnée.
+	 * @param point2_x Point 2 abscisse
+	 * @param point2_y Point 2 ordonnée.
+	 * @param epaisseur Epaisseur de la ligne pour pouvoir calculer l'air.
+	 */
 	public Ligne(final int point1_x, final int point1_y, final int point2_x, final int point2_y, final double epaisseur) {
 		super();
 		this.point1 = new Point(point1_x, point1_y);
@@ -24,14 +41,22 @@ public class Ligne extends Forme implements Calculs, Transformations{
 	public String toString() {
 		return "Ligne [Point1: " + point1.toString() + "; Point2: " + point2.toString() + "; Epaisseur: " + epaisseur + "]";
 	}
-
+	
+	/**
+	 * Mesure du périmètre en utilisant: 2*(longueur + largeur).
+	 * @return Renvoi un double périmètre de l'objet.
+	 */
 	@Override
 	public double mesurer_perimetre() {
 		return 2 * (epaisseur + Math.sqrt(Math.pow(point1.posX - point2.posX, 2) + Math.pow(point1.posY - point2.posY, 2)));
 	}
 
+	/**
+	 * Mesure de l'aire en utilisant: longueur * largeur.
+	 * @return Renvoi un double air de l'objet.
+	 */
 	@Override
-	public double mesurer_air() {
+	public double mesurer_aire() {
 		return epaisseur * Math.sqrt(Math.pow(point1.posX - point2.posX, 2) + Math.pow(point1.posY - point2.posY, 2));
 	}
 	

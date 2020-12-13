@@ -1,5 +1,9 @@
 package mouton;
 
+/**
+ * Interface de transformations permettant d'implémenter les méthodes
+ * de transformations suivantes: homotetie / translation / rotation / symétrie centrale / symétrie axiale.
+ */
 public interface Transformations {
 	
 	abstract public void appliquer_homotetie(final double scale);

@@ -1,11 +1,29 @@
 package mouton;
 
+/**
+ * Classe Cercle descendante de la classe Ellipse.
+ */
 public class Cercle extends Ellipse implements Calculs, Transformations{
 	
+	/**
+	 * Constructeur prenant un point déjà existant pour centre.
+	 * Construit le cercle en appelant le constructeur d'Ellipse et en donnant une même
+	 * valeur pour le demi petit et grand axe.
+	 * @param centre Point central de l'ellipse.
+	 * @param rayon Rayon de l'Ellipse
+	 */
 	public Cercle(final Point centre, final double rayon) {
 		super(centre, rayon, rayon);
 	}
 	
+	/**
+	 * Constructeur prenant les coordonnées d'un point non existant.
+	 * Construit le cercle en appelant le constructeur d'Ellipse et en donnant une même
+	 * valeur pour le demi petit et grand axe.
+	 * @param centre_x Centre abscisse.
+	 * @param centre_y Centre ordonnée.
+	 * @param rayon Rayon du cercle.
+	 */
 	public Cercle(final int centre_x, final int centre_y, final double rayon) {
 		super(centre_x,centre_y,rayon,rayon);
 	}
@@ -15,13 +33,21 @@ public class Cercle extends Ellipse implements Calculs, Transformations{
 		return "Cercle [Centre: " + centre.toString() + "; Rayon: " + this.demi_grand_axe + "]";
 	}
 
+	/**
+	 * Mesure du périmètre en utilisant: 2*Pi*R.
+	 * @return Renvoi un double périmètre de l'objet.
+	 */
 	@Override
 	public double mesurer_perimetre() {
 		return 2 * Math.PI * this.demi_grand_axe;
 	}
 
+	/**
+	 * Mesure de l'aire en utilisant: Pi*R².
+	 * @return Renvoi un double air de l'objet.
+	 */
 	@Override
-	public double mesurer_air() {
+	public double mesurer_aire() {
 		return Math.PI * this.demi_grand_axe*this.demi_grand_axe;
 	}
 

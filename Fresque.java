@@ -2,13 +2,26 @@ package mouton;
 
 import java.util.HashSet;
 
+/**
+ * Classe Fresque recensant des dessins uniques
+ * stockés dans une liste issue de la collection HashSet.
+ */
 public class Fresque implements Calculs, Transformations{
 	
 	private HashSet<Dessin> fresque = new HashSet<Dessin>();
 	
+	/**
+	 * Chaque nouvelle fresque est une liste vide
+	 * prête à recevoir des dessins
+	 */
 	public Fresque() {
 	}
 	
+	/**
+	 * Cette méthode permet d'ajouter un dessin à la fresque
+	 * s'il n'y est pas encore présent.
+	 * @param dessin Objet à ajouter à la liste.
+	 */
 	public void ajouter_dessin(final Dessin dessin) {
 		fresque.add(dessin);
 	}
@@ -37,10 +50,10 @@ public class Fresque implements Calculs, Transformations{
 	}
 
 	@Override
-	public double mesurer_air() {
+	public double mesurer_aire() {
 		double somme = 0;
 		for (Dessin dessin: fresque) {
-			somme += dessin.mesurer_air();
+			somme += dessin.mesurer_aire();
 		}
 		return somme;
 	}
@@ -79,7 +92,7 @@ public class Fresque implements Calculs, Transformations{
 			dessin.symetrie_axiale(point1, point2);
 		}
 	}
-
+	
 	public int nombre_perimetre_inferieur_a(final Fresque fresque, final double seuil) {
 		int nombre = 0;
 		for (Dessin dessin: fresque.getFresque()) {
@@ -98,7 +111,7 @@ public class Fresque implements Calculs, Transformations{
 		int nombre = 0;
 		for (Dessin dessin: fresque.getFresque()) {
 			for (Image image: dessin.getDessin()) {
-				if (image.mesurer_air() < seuil) {
+				if (image.mesurer_aire() < seuil) {
 					nombre += 1;
 				}
 			}
